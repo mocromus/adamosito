@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Da Adamo – Locandina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Barlow+Condensed:wght@400;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --rosso:#C8101A;
+  --giallo:#F5C400;
+  --oro:#E8A000;
+  --bianco:#FFFFFF;
+  --nero:#0A0A0A;
+  --arancio:#F97316;
+}
+
+body{
+  background:#1a1a1a;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  padding:20px;
+  font-family:'Barlow',sans-serif;
+}
+
+/* ── LOCANDINA WRAPPER ── */
+.flyer{
+  width:680px;
+  max-width:100%;
+  background:var(--rosso);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow: 0 40px 100px rgba(0,0,0,.7), 0 0 0 3px var(--giallo), 0 0 0 6px var(--rosso);
+  position:relative;
+}
+
+/* ── DIAGONAL SPLIT ── */
+.flyer-top{
+  background: linear-gradient(135deg, var(--rosso) 0%, #9B0D14 100%);
+  padding:0;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Trinacria SVG watermark */
+.flyer-top::before{
+  content:'';
+  position:absolute;
+  right:-30px; top:-30px;
+  width:300px; height:300px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='rgba(245,196,0,0.12)' stroke-width='3'/%3E%3Ccircle cx='100' cy='100' r='70' fill='none' stroke='rgba(245,196,0,0.08)' stroke-width='2'/%3E%3C/svg%3E") center/cover;
+  pointer-events:none;
+}
+
+/* ── HEADER BAR ── */
+.header-bar{
+  background:var(--giallo);
+  padding:10px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.header-bar .logo-text{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:900;
+  font-size:1rem;
+  color:var(--rosso);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.header-bar .badge-phone{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:800;
+  font-size:.85rem;
+  color:var(--nero);
+  letter-spacing:.04em;
+}
+
+/* ── HERO AREA ── */
+.hero-area{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  padding:0;
+  position:relative;
+}
+
+.hero-left{
+  padding:32px 24px 28px 28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  position:relative;
+}
+.hero-left::after{
+  content:'';
+  position:absolute;
+  right:0;top:10%;bottom:10%;
+  width:1px;
+  background:rgba(245,196,0,0.3);
+}
+
+.hero-right{
+  padding:28px 24px 28px 28px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  background:linear-gradient(135deg, rgba(0,0,0,.08) 0%, transparent 100%);
+}
+
+.eyebrow{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:var(--giallo);
+  margin-bottom:8px;
+  opacity:.9;
+}
+
+.main-title{
+  font-family:'Playfair Display',serif;
+  font-weight:900;
+  font-size:2.6rem;
+  line-height:1.0;
+  color:var(--bianco);
+  margin-bottom:6px;
+}
+.main-title em{
+  font-style:italic;
+  color:var(--giallo);
+  display:block;
+}
+
+.sub-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:700;
+  font-size:1.1rem;
+  color:rgba(255,255,255,.75);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+/* Sicilian flag stripe decoration */
+.flag-stripe{
+  display:flex;
+  gap:0;
+  height:8px;
+  width:100%;
+  border-radius:4px;
+  overflow:hidden;
+  margin-bottom:18px;
+}
+.flag-stripe div:nth-child(1){ flex:1; background:var(--giallo); }
+.flag-stripe div:nth-child(2){ flex:1; background:var(--rosso); }
+
+.pizza-img-wrap{
+  position:relative;
+  width:100%;
+  aspect-ratio:1;
+  max-width:240px;
+  margin:0 auto;
+}
+.pizza-img-wrap img{
+  width:100%; height:100%;
+  object-fit:cover;
+  border-radius:50%;
+  border:4px solid var(--giallo);
+  box-shadow:0 12px 40px rgba(0,0,0,.5), 0 0 0 8px rgba(245,196,0,.15);
+}
+.pizza-badge{
+  position:absolute;
+  bottom:-8px; right:-8px;
+  background:var(--giallo);
+  color:var(--rosso);
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:900;
+  font-size:.65rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  padding:6px 10px;
+  border-radius:999px;
+  border:2px solid var(--rosso);
+  box-shadow:0 4px 14px rgba(0,0,0,.4);
+}
+
+.desc-text{
+  font-family:'Barlow',sans-serif;
+  font-size:.82rem;
+  color:rgba(255,255,255,.8);
+  line-height:1.55;
+  margin-bottom:20px;
+}
+.desc-text strong{ color:var(--giallo); font-weight:700; }
+
+.cta-phone{
+  display:inline-flex;
+  flex-direction:column;
+  background:var(--giallo);
+  color:var(--rosso);
+  padding:12px 20px;
+  border-radius:12px;
+  text-decoration:none;
+  box-shadow:0 8px 24px rgba(0,0,0,.35);
+  transition:transform .2s;
+}
+.cta-phone:hover{ transform:scale(1.03); }
+.cta-phone .cta-label{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.65rem;
+  font-weight:800;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  opacity:.7;
+  line-height:1;
+}
+.cta-phone .cta-number{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:1.35rem;
+  font-weight:900;
+  line-height:1.1;
+}
+
+/* ── HIGHLIGHT STRIP ── */
+.highlight-strip{
+  background:var(--giallo);
+  padding:14px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.highlight-pill{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:800;
+  font-size:.85rem;
+  color:var(--rosso);
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+.highlight-pill .pill-icon{ font-size:1.1rem; }
+.dot-sep{ width:5px; height:5px; background:var(--rosso); border-radius:50%; opacity:.4; }
+
+/* ── MENU PREVIEW AREA ── */
+.menu-preview{
+  background: linear-gradient(180deg, #0D0D0D 0%, #1a0505 100%);
+  padding:28px 28px 24px;
+}
+
+.menu-section-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:900;
+  font-size:1.1rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--giallo);
+  margin-bottom:14px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.menu-section-title::after{
+  content:'';
+  flex:1;
+  height:1px;
+  background:linear-gradient(90deg, rgba(245,196,0,.4), transparent);
+}
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px 20px;
+  margin-bottom:22px;
+}
+.menu-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:6px;
+  padding:5px 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.menu-row:last-child{ border-bottom:none; }
+.menu-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:700;
+  font-size:.82rem;
+  color:#F0F0F0;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  flex:1;
+}
+.menu-desc{
+  font-family:'Barlow',sans-serif;
+  font-size:.67rem;
+  color:rgba(255,255,255,.45);
+  font-style:italic;
+  max-width:160px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.menu-price{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:800;
+  font-size:.85rem;
+  color:var(--giallo);
+  flex-shrink:0;
+  margin-left:6px;
+}
+.menu-price .euro{ font-size:.7rem; margin-right:1px; }
+.badge-best-s{
+  display:inline-block;
+  background:var(--rosso);
+  color:var(--giallo);
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.58rem;
+  font-weight:900;
+  letter-spacing:.1em;
+  padding:1px 5px;
+  border-radius:999px;
+  text-transform:uppercase;
+  margin-left:4px;
+  vertical-align:middle;
+}
+
+/* Rosticceria row (single col) */
+.rosti-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:8px;
+  margin-bottom:20px;
+}
+.rosti-card{
+  background:rgba(245,196,0,.07);
+  border:1px solid rgba(245,196,0,.15);
+  border-radius:10px;
+  padding:10px;
+  text-align:center;
+}
+.rosti-icon{ font-size:1.5rem; margin-bottom:4px; display:block; }
+.rosti-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:800;
+  font-size:.72rem;
+  color:var(--giallo);
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  display:block;
+  margin-bottom:2px;
+}
+.rosti-price{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:700;
+  font-size:.8rem;
+  color:rgba(255,255,255,.7);
+}
+
+/* ── FOOTER ── */
+.flyer-footer{
+  background:var(--giallo);
+  padding:16px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.footer-address{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:800;
+  font-size:.95rem;
+  color:var(--rosso);
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+.footer-address span{
+  display:block;
+  font-size:.7rem;
+  font-weight:600;
+  color:rgba(180,0,10,.7);
+  letter-spacing:.1em;
+}
+.footer-phones{
+  text-align:right;
+}
+.footer-phones .ph{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:900;
+  font-size:1.1rem;
+  color:var(--rosso);
+  display:block;
+}
+.footer-phones .ph-label{
+  font-family:'Barlow',sans-serif;
+  font-size:.65rem;
+  color:rgba(180,0,10,.6);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+/* ── TRINACRIA ── */
+.trinacria-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.trinacria-svg{
+  width:50px;
+  height:50px;
+  opacity:.9;
+}
+</style>
+</head>
+<body>
+
+<div class="flyer">
+
+  <!-- HEADER BAR -->
+  <div class="header-bar">
+    <div class="logo-text">✦ Da Adamo · Pizzeria & Rosticceria Siciliana ✦</div>
+    <div class="badge-phone">📞 347 69 16 227</div>
+  </div>
+
+  <!-- HERO AREA -->
+  <div class="flyer-top">
+    <div class="hero-area">
+
+      <!-- LEFT: Title & info -->
+      <div class="hero-left">
+        <div class="eyebrow">✦ Ivrea · Produzione Propria ✦</div>
+        <h1 class="main-title">
+          Le Nostre<br>
+          <em>Pizze</em>
+        </h1>
+        <div class="sub-title">Classiche &amp; Al Tegamino</div>
+        <div class="flag-stripe"><div></div><div></div></div>
+        <p class="desc-text">
+          Impasto a <strong>lievitazione lenta</strong> con farina siciliana.<br>
+          Pizza al tegamino: croccante fuori, <strong>soffice dentro</strong>.<br>
+          Ingredienti freschi ogni giorno — <strong>produzione propria</strong>.
+        </p>
+        <a href="tel:3476916227" class="cta-phone">
+          <span class="cta-label">📞 Ordina &amp; Prenota</span>
+          <span class="cta-number">347 69 16 227</span>
+          <span class="cta-number" style="font-size:1rem;opacity:.75;">0125 1893597</span>
+        </a>
+      </div>
+
+      <!-- RIGHT: Pizza image + tagline -->
+      <div class="hero-right">
+        <div class="pizza-img-wrap" style="margin-bottom:20px">
+          <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&auto=format&fit=crop&q=80"
+               alt="Pizza fumante Da Adamo"/>
+          <div class="pizza-badge">🔥 Dal Forno</div>
+        </div>
+        <div style="text-align:center;width:100%">
+          <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:2rem;font-weight:900;color:#F5C400;line-height:1.1;margin-bottom:4px;">…da Adamo</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:700;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:.08em;">il siciliano</div>
+          <div style="margin-top:10px;font-family:'Barlow',sans-serif;font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.4;">
+            Pizzeria Rosticceria siciliana d'asporto<br>
+            <strong style="color:#F5C400;">consegne a domicilio Ivrea &amp; dintorni</strong>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- HIGHLIGHT STRIP -->
+  <div class="highlight-strip">
+    <div class="highlight-pill"><span class="pill-icon">🍕</span>Pizza al Tegamino</div>
+    <div class="dot-sep"></div>
+    <div class="highlight-pill"><span class="pill-icon">🧆</span>Arancini Siciliani</div>
+    <div class="dot-sep"></div>
+    <div class="highlight-pill"><span class="pill-icon">🥐</span>Cannoli Espressi</div>
+    <div class="dot-sep"></div>
+    <div class="highlight-pill"><span class="pill-icon">🚴</span>Domicilio Ivrea</div>
+  </div>
+
+  <!-- MENU PREVIEW -->
+  <div class="menu-preview">
+
+    <!-- PIZZE -->
+    <div class="menu-section-title">🍕 Le Nostre Pizze</div>
+    <div class="menu-grid">
+      <div>
+        <div class="menu-row">
+          <span class="menu-name">Marinara</span>
+          <span class="menu-price"><span class="euro">€</span>5,00</span>
+        </div>
+        <div class="menu-row">
+          <span class="menu-name">Margherita</span>
+          <span class="menu-price"><span class="euro">€</span>5,00</span>
+        </div>
+        <div class="menu-row">
+          <span class="menu-name">Funghi / Tonno</span>
+          <span class="menu-price"><span class="euro">€</span>6,50</span>
+        </div>
+        <div class="menu-row">
+          <span class="menu-name">Diavola<span class="badge-best-s">🌶</span></span>
+          <span class="menu-price"><span class="euro">€</span>7,00</span>
+        </div>
+        <div class="menu-row">
+          <span class="menu-name">Siciliana<span class="badge-best-s">★</span></span>
+          <span class="menu-price"><span class="euro">€</span>7,00</span>
+        </div>
+        <div class="menu-row">
+          <span class="menu-name">4 Formaggi</span>
+          <span class="menu-price"><span class="euro">€</span>7,00</span>
+        </div>
+        <div class="menu-row">
+          <span class="menu-name">Bufala</span>
+          <span class="menu-price"><span class="euro">€</span>7,50</span>
+        </div>
+        <div class="menu-row">
+          <span class="menu-name">Primavera</span>
+          <span class="menu-price"><span class="euro">€</span>7,50</span>
+        </div>
+      </div>
+      <div>
+        <div class="menu-row">
+          <span class="menu-name">Capricciosa</span>
+          <span class="menu-price"><span class="euro">€</span>8,00</span>
+        </div>
+        <div class="menu-row">
+          <span class="menu-name">Adamo<span class="badge-best-s">★</span></span>
+          <span class="menu-price"><span class="euro">€</span>8,00</span>
+        </div>
+        <div class="menu-row">
+          <span class="menu-name">Frutti di Mare</span>
+          <span class="menu-price"><span class="euro">€</span>8,00</span>
+        </div>
+        <div class="menu-row">
+          <span class="menu-name">Carbonara</span>
+          <span class="menu-price"><span class="euro">€</span>8,50</span>
+        </div>
+        <div class="menu-row">
+          <span class="menu-name">Sals. &amp; Patate</span>
+          <span class="menu-price"><span class="euro">€</span>8,50</span>
+        </div>
+        <div class="menu-row">
+          <span class="menu-name">Mare e Monti<span class="badge-best-s">★</span></span>
+          <span class="menu-price"><span class="euro">€</span>9,00</span>
+        </div>
+        <div class="menu-row" style="opacity:.6">
+          <span class="menu-name">Teglia 60×40</span>
+          <span class="menu-price">da €19,99</span>
+        </div>
+        <div class="menu-row" style="opacity:.6">
+          <span class="menu-name">Calzone Farcito</span>
+          <span class="menu-price">da €7,00</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROSTICCERIA -->
+    <div class="menu-section-title">🧆 Rosticceria Siciliana</div>
+    <div class="rosti-grid">
+      <div class="rosti-card">
+        <span class="rosti-icon">🧆</span>
+        <span class="rosti-name">Arancini</span>
+        <span class="rosti-price">da € 3,50</span>
+      </div>
+      <div class="rosti-card">
+        <span class="rosti-icon">🥐</span>
+        <span class="rosti-name">Cannoli Espressi</span>
+        <span class="rosti-price">€ 3,50</span>
+      </div>
+      <div class="rosti-card">
+        <span class="rosti-icon">🍞</span>
+        <span class="rosti-name">Panzerotti</span>
+        <span class="rosti-price">da € 3,50</span>
+      </div>
+      <div class="rosti-card">
+        <span class="rosti-icon">🍰</span>
+        <span class="rosti-name">Tiramisù</span>
+        <span class="rosti-price">da € 4,00</span>
+      </div>
+      <div class="rosti-card">
+        <span class="rosti-icon">🫓</span>
+        <span class="rosti-name">Scacciata</span>
+        <span class="rosti-price">da € 4,00</span>
+      </div>
+      <div class="rosti-card">
+        <span class="rosti-icon">🛒</span>
+        <span class="rosti-name">Vassoi &amp; Feste</span>
+        <span class="rosti-price">Su ordinazione</span>
+      </div>
+    </div>
+
+    <!-- Note -->
+    <div style="background:rgba(245,196,0,.07);border:1px solid rgba(245,196,0,.2);border-radius:10px;padding:10px 14px;font-family:'Barlow',sans-serif;font-size:.72rem;color:rgba(255,255,255,.55);line-height:1.5;">
+      ℹ️ Ingredienti DOP siciliani · Impasto 48h lievitazione lenta · Consegna minimo €15 · Contributo €2 · Prezzi IVA inclusa
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="flyer-footer">
+    <div class="footer-address">
+      <span>Corso Nigra 53 · IVREA</span>
+      <span>📍 Consegne Ivrea &amp; Dintorni</span>
+    </div>
+    <div class="trinacria-wrap">
+      <!-- Simplified Trinacria SVG -->
+      <svg class="trinacria-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="46" fill="none" stroke="#C8101A" stroke-width="3"/>
+        <!-- Gorgon head -->
+        <circle cx="50" cy="38" r="12" fill="#C8101A"/>
+        <circle cx="46" cy="35" r="2.5" fill="#F5C400"/>
+        <circle cx="54" cy="35" r="2.5" fill="#F5C400"/>
+        <path d="M45,41 Q50,45 55,41" stroke="#F5C400" stroke-width="1.5" fill="none"/>
+        <!-- Three legs -->
+        <line x1="50" y1="50" x2="25" y2="75" stroke="#C8101A" stroke-width="5" stroke-linecap="round"/>
+        <line x1="50" y1="50" x2="75" y2="75" stroke="#C8101A" stroke-width="5" stroke-linecap="round"/>
+        <line x1="50" y1="50" x2="50" y2="82" stroke="#C8101A" stroke-width="5" stroke-linecap="round"/>
+        <!-- Wheat -->
+        <ellipse cx="22" cy="73" rx="5" ry="2" fill="#F5C400" transform="rotate(-30,22,73)"/>
+        <ellipse cx="78" cy="73" rx="5" ry="2" fill="#F5C400" transform="rotate(30,78,73)"/>
+        <ellipse cx="50" cy="84" rx="5" ry="2" fill="#F5C400"/>
+      </svg>
+    </div>
+    <div class="footer-phones">
+      <span class="ph-label">Chiama ora</span>
+      <span class="ph">347 69 16 227</span>
+      <span class="ph" style="font-size:.9rem;opacity:.85;">0125 1893597</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
