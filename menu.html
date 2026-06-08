@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Menu Completo – Da Adamo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Barlow+Condensed:wght@400;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --rosso:#B8111B;
+  --rosso-deep:#8B0000;
+  --giallo:#F5C400;
+  --oro:#D4A800;
+  --bianco:#FFFFFF;
+  --nero:#0A0A0A;
+  --crema:#FFF8ED;
+  --bg:#0D0A00;
+  --bg2:#130e01;
+  --card:#1C1400;
+  --card2:#221A00;
+  --border:rgba(245,196,0,.18);
+  --text-dim:rgba(255,248,237,.55);
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+  background:var(--bg);
+  color:var(--crema);
+  font-family:'Barlow',sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:'';
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity:.03;mix-blend-mode:overlay;
+}
+
+/* ── COVER PAGE ── */
+.cover{
+  min-height:100vh;
+  background:linear-gradient(150deg, var(--rosso-deep) 0%, var(--rosso) 35%, #5a0008 70%, var(--bg) 100%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px 24px;
+  position:relative;
+  overflow:hidden;
+  page-break-after:always;
+}
+
+.cover::before{
+  content:'';
+  position:absolute;
+  top:-100px;right:-100px;
+  width:500px;height:500px;
+  border-radius:50%;
+  border:2px solid rgba(245,196,0,.12);
+  pointer-events:none;
+}
+.cover::after{
+  content:'';
+  position:absolute;
+  bottom:-120px;left:-120px;
+  width:450px;height:450px;
+  border-radius:50%;
+  border:1px solid rgba(245,196,0,.08);
+  pointer-events:none;
+}
+
+.flag-band{
+  position:absolute;
+  top:0;bottom:0;
+  width:100%;
+  overflow:hidden;
+  pointer-events:none;
+}
+.flag-band::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:50%;
+  background:var(--giallo);
+  opacity:.07;
+  clip-path:polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+/* Header Top con Logo e Scrittura Storica */
+.cover-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-logo{
+  width:80px;height:80px;
+  border-radius:50%;
+  background:var(--giallo);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;
+  font-size:2.8rem;font-weight:900;
+  color:var(--rosso);
+  box-shadow:0 12px 40px rgba(0,0,0,.5),0 0 0 4px rgba(245,196,0,.3);
+}
+
+.cover-slogan-top {
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-size:1.6rem;
+  font-weight:700;
+  color:var(--giallo);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  text-align: left;
+}
+
+.cover-eyebrow{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.72rem;font-weight:800;
+  letter-spacing:.3em;text-transform:uppercase;
+  color:var(--giallo);opacity:.8;
+  margin-bottom:12px;
+  position:relative;z-index:1;
+}
+
+.cover-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3rem,8vw,5.5rem);
+  font-weight:900;line-height:1.0;
+  color:var(--bianco);
+  margin-bottom:8px;
+  position:relative;z-index:1;
+}
+.cover-title em{
+  font-style:italic;
+  color:var(--giallo);
+  display:block;
+  font-size:clamp(3.5rem,9vw,6rem);
+}
+
+.cover-subtitle{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:700;font-size:1.1rem;
+  letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(255,255,255,.65);
+  margin-bottom:30px;
+  position:relative;z-index:1;
+}
+
+.cover-divider{
+  width:120px;height:2px;
+  background:linear-gradient(90deg, transparent, var(--giallo), transparent);
+  margin:0 auto 28px;
+  position:relative;z-index:1;
+}
+
+.cover-desc{
+  font-family:'Barlow',sans-serif;
+  font-size:.92rem;
+  color:rgba(255,255,255,.65);
+  max-width:420px;
+  line-height:1.65;
+  margin:0 auto 36px;
+  position:relative;z-index:1;
+}
+.cover-desc strong{ color:var(--giallo); }
+
+.cover-info{
+  display:flex;flex-wrap:wrap;gap:20px;
+  justify-content:center;
+  position:relative;z-index:1;
+}
+.cover-info-pill{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(245,196,0,.1);
+  border:1px solid rgba(245,196,0,.25);
+  border-radius:999px;
+  padding:8px 18px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:700;font-size:.85rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--giallo);
+}
+
+/* ── MAIN MENU BODY ── */
+.menu-body{
+  max-width:780px;
+  margin:0 auto;
+  padding:60px 20px 80px;
+  position:relative;z-index:1;
+}
+
+/* Sezione Foto Volantino Realistico */
+.menu-visual-box {
+  margin-bottom: 60px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:0 14px 36px rgba(0,0,0,.5);
+}
+.menu-visual-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.sec-header{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:28px;
+  margin-top:60px;
+}
+.sec-header:first-of-type{ margin-top:0; }
+
+.sec-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.9rem;font-weight:900;
+  color:var(--bianco);
+  line-height:1.1;
+}
+.sec-title em{ font-style:italic; color:var(--giallo); }
+.sec-subtitle{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.72rem;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--text-dim);
+}
+.sec-line{
+  flex:1;height:1px;
+  background:linear-gradient(90deg,rgba(245,196,0,.3),transparent);
+}
+
+.cat-label{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.68rem;font-weight:800;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--giallo);
+  opacity:.7;
+  margin-bottom:12px;
+  margin-top:28px;
+  padding-left:4px;
+}
+
+.item{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:12px 0;
+  border-bottom:1px solid rgba(245,196,0,.07);
+  position:relative;
+  transition:background .2s;
+}
+.item:hover{ background:rgba(245,196,0,.03); }
+.item:last-child{ border-bottom:1px solid rgba(245,196,0,.12); }
+
+.item-left{ flex:1; }
+
+.item-name-row{
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:3px;
+}
+.item-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:800;font-size:1.05rem;
+  color:var(--crema);
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+.badge{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.6rem;font-weight:900;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:2px 7px;border-radius:999px;
+  flex-shrink:0;
+}
+.badge-top{ background:var(--rosso); color:var(--giallo); }
+.badge-new{ background:var(--giallo); color:var(--rosso); }
+.badge-veg{ background:#2d5a27; color:#a8e69e; }
+.badge-hot{ background:#7a1500; color:#ffa07a; }
+
+.item-desc{
+  font-family:'Barlow',sans-serif;
+  font-size:.8rem;
+  color:var(--text-dim);
+  line-height:1.5;
+  font-style:italic;
+}
+.item-desc strong{ color:rgba(245,196,0,.75); font-style:normal; }
+
+.item-right{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  justify-content:center;
+  min-width:60px;
+  flex-shrink:0;
+  padding-top:2px;
+}
+.price{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:900;font-size:1.2rem;
+  color:var(--giallo);
+  line-height:1;
+}
+.price-from{
+  font-size:.65rem;font-weight:600;
+  color:var(--text-dim);
+  text-align:right;
+}
+
+.specials-box{
+  background:linear-gradient(135deg,rgba(184,17,27,.18) 0%,rgba(180,130,0,.1) 100%);
+  border:1px solid rgba(245,196,0,.2);
+  border-radius:16px;
+  padding:20px;
+  margin-top:28px;
+}
+.specials-box-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.75rem;font-weight:800;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--giallo);
+  margin-bottom:14px;
+  opacity:.8;
+}
+
+.rosti-big-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:12px;
+  margin-top:8px;
+}
+.rosti-big-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  display:flex;flex-direction:column;
+  gap:4px;
+  transition:transform .2s,border-color .2s,box-shadow .2s;
+}
+.rosti-big-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(245,196,0,.35);
+  box-shadow:0 12px 30px rgba(0,0,0,.4);
+}
+.rbc-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:800;font-size:1rem;
+  color:var(--crema);
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  margin-bottom: 4px;
+}
+.rbc-variants{
+  font-family:'Barlow',sans-serif;
+  font-size:.72rem;
+  color:var(--text-dim);
+  line-height:1.45;
+  font-style:italic;
+  flex:1;
+}
+.rbc-price{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:800;font-size:1.05rem;
+  color:var(--giallo);
+  margin-top:6px;
+}
+
+.dolci-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:12px;
+  margin-top:8px;
+}
+.dolci-card{
+  background:linear-gradient(135deg,var(--card),var(--card2));
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:18px;
+  text-align:center;
+  transition:transform .2s,box-shadow .2s;
+}
+.dolci-card:hover{ transform:translateY(-3px); box-shadow:0 14px 36px rgba(0,0,0,.4); }
+.dolci-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:800;font-size:1rem;
+  color:var(--crema);text-transform:uppercase;
+  letter-spacing:.05em;margin-bottom:5px;
+}
+.dolci-desc{
+  font-family:'Barlow',sans-serif;
+  font-size:.75rem;color:var(--text-dim);
+  font-style:italic;line-height:1.45;
+  margin-bottom:10px;
+}
+.dolci-price{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:900;font-size:1.15rem;
+  color:var(--giallo);
+}
+
+.order-big{
+  background:linear-gradient(135deg,var(--rosso-deep),#4a0008);
+  border:1px solid rgba(245,196,0,.25);
+  border-radius:18px;
+  padding:28px;
+  text-align:center;
+  margin-top:16px;
+}
+.order-big-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.6rem;font-weight:900;
+  color:var(--bianco);margin-bottom:6px;
+}
+.order-big-title em{ color:var(--giallo);font-style:italic; }
+.order-big-desc{
+  font-family:'Barlow',sans-serif;
+  font-size:.85rem;color:rgba(255,255,255,.65);
+  line-height:1.55;margin-bottom:20px;
+}
+.order-ctas{ display:flex;gap:12px;justify-content:center;flex-wrap:wrap; }
+.btn-yellow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--giallo);color:var(--rosso);
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:900;font-size:1rem;
+  letter-spacing:.07em;text-transform:uppercase;
+  padding:12px 24px;border-radius:999px;
+  text-decoration:none;
+  box-shadow:0 6px 20px rgba(200,160,0,.35);
+  transition:transform .2s,box-shadow .2s;
+}
+.btn-yellow:hover{ transform:scale(1.04);box-shadow:0 10px 30px rgba(200,160,0,.5); }
+.btn-outline{
+  display:inline-flex;align-items:center;gap:8px;
+  border:2px solid rgba(245,196,0,.5);color:var(--giallo);
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:800;font-size:.9rem;
+  letter-spacing:.07em;text-transform:uppercase;
+  padding:12px 22px;border-radius:999px;
+  text-decoration:none;
+  transition:background .2s,border-color .2s;
+}
+.btn-outline:hover{ background:rgba(245,196,0,.1);border-color:var(--giallo); }
+
+.menu-footer{
+  background:var(--giallo);
+  padding:24px 28px;
+  display:flex;flex-wrap:wrap;
+  align-items:center;justify-content:space-between;
+  gap:16px;
+}
+.mf-brand{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:900;font-size:1.3rem;
+  color:var(--rosso);text-transform:uppercase;
+  letter-spacing:.1em;
+}
+.mf-info{
+  font-family:'Barlow',sans-serif;
+  font-size:.78rem;color:rgba(100,0,10,.7);
+  line-height:1.5;
+}
+.mf-phones{
+  text-align:right;
+}
+.mf-phone-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:900;font-size:1.2rem;
+  color:var(--rosso);display:block;
+}
+.mf-phone-label{
+  font-size:.65rem;color:rgba(100,0,10,.5);
+  font-family:'Barlow',sans-serif;
+  letter-spacing:.08em;text-transform:uppercase;
+}
+
+.menu-note{
+  font-family:'Barlow',sans-serif;
+  font-size:.72rem;
+  color:var(--text-dim);
+  text-align:center;
+  margin-top:40px;
+  line-height:1.6;
+  max-width:560px;
+  margin-left:auto;
+  margin-right:auto;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ COVER ═══════════════════ -->
+<div class="cover">
+  <div class="flag-band"></div>
+
+  <!-- Header Top con Logo e Scrittura Storica Richiesta -->
+  <div class="cover-header-top">
+    <div class="cover-logo">A</div>
+    <div class="cover-slogan-top">…da Adamo,<br>il siciliano</div>
+  </div>
+
+  <div class="cover-eyebrow">Pizzeria e Rosticceria Siciliana · Ivrea</div>
+
+  <h1 class="cover-title">
+    Menu
+    <em>Completo</em>
+  </h1>
+
+  <div class="cover-subtitle">Classiche · Al Tegamino · Rosticceria · Dolci</div>
+
+  <div class="cover-divider"></div>
+
+  <p class="cover-desc">
+    Ogni piatto nasce da <strong>ingredienti DOP siciliani</strong> selezionati.<br>
+    Impasto a <strong>48h di lievitazione lenta</strong>.<br>
+    Cannoli riempiti al momento, <strong>solo da noi</strong>.
+  </p>
+
+  <div class="cover-info">
+    <div class="cover-info-pill">Corso Nigra 53, Ivrea</div>
+    <div class="cover-info-pill">347 69 16 227</div>
+    <div class="cover-info-pill">Domicilio Ivrea e Dintorni</div>
+    <div class="cover-info-pill">Produzione Propria</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ MENU BODY ═══════════════════ -->
+<div class="menu-body">
+
+  <!-- Sezione Foto Volantino Reale -->
+  <div class="menu-visual-box">
+    <img src="img.jpg" alt="Da Adamo il Siciliano - Menu Originale">
+  </div>
+
+  <!-- ──────────── PIZZE ──────────── -->
+  <div class="sec-header">
+    <div>
+      <div class="sec-title">Le Nostre <em>Pizze</em></div>
+      <div class="sec-subtitle">Classiche &amp; Al Tegamino · Impasto 48h</div>
+    </div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="cat-label">Le Classiche</div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Marinara</span></div>
+      <div class="item-desc">Pomodoro San Marzano, aglio, origano selvatico, olio extravergine. La più pura, la più onesta.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 5,00</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Margherita</span><span class="badge badge-top">Icona</span></div>
+      <div class="item-desc">Pomodoro, <strong>fior di latte</strong>, olio. Il canone — eseguito alla perfezione.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 5,00</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Biancaneve</span></div>
+      <div class="item-desc">Base bianca, mozzarella filante, origano. Minimalismo goloso.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 5,00</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Pugliese (Cipolla)</span></div>
+      <div class="item-desc">Pomodoro, mozzarella, <strong>cipolle di Tropea</strong>, origano, olio extravergine.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 6,00</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Funghi</span></div>
+      <div class="item-desc">Pomodoro, mozzarella, <strong>funghi champignon</strong> trifolati.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 6,50</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Carciofi</span></div>
+      <div class="item-desc">Pomodoro, mozzarella, <strong>carciofi alla romana</strong>.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 6,50</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Tonno</span></div>
+      <div class="item-desc">Pomodoro, mozzarella, <strong>tonno pinna gialla</strong>, origano.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 6,50</div></div>
+  </div>
+
+  <div class="cat-label">Le Saporite</div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Prosciutto Cotto</span></div>
+      <div class="item-desc">Pomodoro, mozzarella, <strong>prosciutto cotto di qualità</strong>.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 7,00</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Diavola</span><span class="badge badge-hot">Piccante</span></div>
+      <div class="item-desc">Pomodoro, mozzarella, <strong>salame piccante calabrese</strong>, peperoncino.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 7,00</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Siciliana</span><span class="badge badge-top">Best</span></div>
+      <div class="item-desc">Pomodoro, <strong>capperi di Pantelleria</strong>, acciughe di Sicilia, olive nere, origano. Un classico del Sud.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 7,00</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Parmigiana</span></div>
+      <div class="item-desc">Pomodoro, mozzarella, <strong>melanzane fritte</strong>, scaglie di Grana Padano.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 7,00</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">4 Formaggi</span></div>
+      <div class="item-desc">Pomodoro, mozzarella, gorgonzola, scamorza, Grana. Sinfonia casearia.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 7,00</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Prosciutto e Funghi</span></div>
+      <div class="item-desc">Pomodoro, mozzarella, prosciutto cotto, funghi champignon trifolati.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 7,50</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Primavera</span></div>
+      <div class="item-desc">Pomodoro fresco, mozzarella, <strong>rucola fresca</strong>, scaglie di Grana.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 7,50</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Verdure</span><span class="badge badge-veg">Veg</span></div>
+      <div class="item-desc">Zucchine, melanzane e peperoni <strong>alla griglia</strong>. Leggerezza mediterranea.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 7,50</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Bufala</span><span class="badge badge-top">Premium</span></div>
+      <div class="item-desc">Pomodoro fresco, <strong>mozzarella di bufala DOP campana</strong>. La purezza batte il tempo.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 7,50</div></div>
+  </div>
+
+  <div class="cat-label">Le Ricche</div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Capricciosa</span></div>
+      <div class="item-desc">Funghi, carciofi, prosciutto cotto, olive. Il classico di sempre, eseguito bene.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 8,00</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Adamo</span><span class="badge badge-top">Firma</span></div>
+      <div class="item-desc">Pomodoro, mozzarella, <strong>salsiccia fresca artigianale</strong>, rucola, scaglie di Grana. La nostra pizza.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 8,00</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Brianza</span></div>
+      <div class="item-desc">Salsiccia artigianale, <strong>scamorza affumicata</strong>. Profumi di fumo e brace.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 8,00</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Frutti di Mare</span></div>
+      <div class="item-desc">Base rossa, mix di frutti di mare saltati, prezzemolo, aglio, olio.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 8,00</div></div>
+  </div>
+
+  <div class="cat-label">Le Specialità della Casa (Tegamino Farcito)</div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Salsiccia e Patate al Forno</span></div>
+      <div class="item-desc">Base rossa o bianca, <strong>salsiccia artigianale</strong>, patate al forno con rosmarino. Comfort food d'alta scuola.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 8,50</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">4 Formaggi e Patate</span></div>
+      <div class="item-desc">Selezione di formaggi fusi, <strong>patate al forno</strong>. Cremosa, avvolgente, irresistibile.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 8,50</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Carbonara</span><span class="badge badge-top">Best</span></div>
+      <div class="item-desc"><strong>Pancetta croccante</strong>, uovo, Grana Padano, pepe nero. Roma incontra Palermo.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 8,50</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Zucchine e Gamberetti</span></div>
+      <div class="item-desc">Zucchine al profumo di menta, <strong>gamberetti saltati</strong>, base bianca. Freschezza di mare.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 8,50</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Salmone e Porcini</span></div>
+      <div class="item-desc"><strong>Salmone affumicato</strong>, funghi porcini trifolati, base bianca e crème fraîche.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 8,50</div></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <div class="item-name-row"><span class="item-name">Mare e Monti</span><span class="badge badge-top">Firma</span></div>
+      <div class="item-desc"><strong>Funghi porcini</strong> e frutti di mare. Il meglio della terra e del mare in un unico tegamino.</div>
+    </div>
+    <div class="item-right"><div class="price">€ 9,00</div></div>
+  </div>
+
+  <!-- Specials box -->
+  <div class="specials-box">
+    <div class="specials-box-title">Formati Speciali</div>
+    <div class="item" style="border-color:rgba(245,196,0,.12)">
+      <div class="item-left">
+        <div class="item-name-row"><span class="item-name">Calzone Farcito</span></div>
+        <div class="item-desc">Ripieno a scelta — ideale da asporto. Anche in formato maxi su richiesta.</div>
+      </div>
+      <div class="item-right">
+        <div class="price">da € 7,00</div>
+        <div class="price-from">a richiesta</div>
+      </div>
+    </div>
+    <div class="item" style="border-color:rgba(245,196,0,.12)">
+      <div class="item-left">
+        <div class="item-name-row"><span class="item-name">Focaccia Artigianale</span></div>
+        <div class="item-desc">Origano, olio extravergine siciliano, sale di Trapani. Per due persone.</div>
+      </div>
+      <div class="item-right">
+        <div class="price">€ 3,00</div>
+      </div>
+    </div>
+    <div class="item" style="border-bottom:none">
+      <div class="item-left">
+        <div class="item-name-row"><span class="item-name">Teglia 60×40</span><span class="badge badge-new">Evento</span></div>
+        <div class="item-desc">Per feste e gruppi — in teglia grande, farcitura a scelta. Ordinazione anticipata richiesta.</div>
+      </div>
+      <div class="item-right">
+        <div class="price">da €19,99</div>
+        <div class="price-from">su ordinazione</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ──────────── ROSTICCERIA ──────────── -->
+  <div class="sec-header">
+    <div>
+      <div class="sec-title">Rosticceria <em>Siciliana</em></div>
+      <div class="sec-subtitle">Street Food Autentico · Fatto Ogni Giorno</div>
+    </div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="rosti-big-grid">
+
+    <div class="rosti-big-card">
+      <div class="rbc-name">Arancini Siciliani</div>
+      <div class="rbc-variants">
+        · <strong>Al Ragù</strong> – riso zafferano, carne, piselli, mozzarella<br>
+        · <strong>Al Burro</strong> – prosciutto cotto, besciamella<br>
+        · <strong>Al Pistacchio</strong> – crema di Bronte IGP, salsiccia, scamorza<br>
+        · <strong>Agli Spinaci</strong> – spinaci, ricotta, scamorza
+      </div>
+      <div class="rbc-price">da € 3,50</div>
+    </div>
+
+    <div class="rosti-big-card">
+      <div class="rbc-name">Panzerotti &amp; Calzoni Fritti</div>
+      <div class="rbc-variants">
+        · <strong>Classico</strong> – pomodoro e mozzarella<br>
+        · <strong>Prosciutto e Formaggio</strong><br>
+        · <strong>Salsiccia e Friarielli</strong><br>
+        · Varianti del giorno disponibili
+      </div>
+      <div class="rbc-price">da € 3,50</div>
+    </div>
+
+    <div class="rosti-big-card">
+      <div class="rbc-name">Scacciata / Sfincione</div>
+      <div class="rbc-variants">
+        · <strong>Sfincione Palermitano</strong> – pomodoro, cipolla, acciughe, caciocavallo<br>
+        · <strong>Scacciata Ragusana</strong> – pomodoro e formaggio<br>
+        · Varianti stagionali
+      </div>
+      <div class="rbc-price">da € 3,50</div>
+    </div>
+
+    <div class="rosti-big-card">
+      <div class="rbc-name">Pizzette &amp; Rustici</div>
+      <div class="rbc-variants">
+        · Pizzette al pomodoro e mozzarella<br>
+        · Rustici assortiti (prosciutto, spinaci, funghi)<br>
+        · Tranci di focaccia farcita<br>
+        · Panino con Panelle (ceci fritti)
+      </div>
+      <div class="rbc-price">da € 2,00</div>
+    </div>
+
+    <div class="rosti-big-card">
+      <div class="rbc-name">Vassoi per Feste</div>
+      <div class="rbc-variants">
+        Vassoi di rosticceria mista per compleanni, eventi aziendali e feste.<br>
+        <strong>Ordinazione anticipata obbligatoria.</strong><br>
+        Minimo 24h di preavviso.
+      </div>
+      <div class="rbc-price">Su prenotazione</div>
+    </div>
+
+    <div class="rosti-big-card">
+      <div class="rbc-name">Trancio Pizza al Taglio</div>
+      <div class="rbc-variants">
+        Farciture del giorno scritte sulla lavagna.<br>
+        Bianche, rosse, con verdure, con salumi.<br>
+        Disponibilità limitata — arriva presto!
+      </div>
+      <div class="rbc-price">da € 3,00</div>
+    </div>
+
+  </div>
+
+  <!-- ──────────── DOLCI ──────────── -->
+  <div class="sec-header">
+    <div>
+      <div class="sec-title">I <em>Dolci</em></div>
+      <div class="sec-subtitle">Tradizione Siciliana · Freschi Ogni Giorno</div>
+    </div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="dolci-grid">
+
+    <div class="dolci-card">
+      <div class="dolci-name">Cannolo Siciliano Espresso</div>
+      <div class="dolci-desc">
+        Cialda croccante, <strong>ricotta fresca di pecora</strong> setacciata al momento, gocce di cioccolato fondente 70% o granella di pistacchio di Bronte.
+        <em>Riempito davanti a te — la differenza si sente.</em>
+      </div>
+      <div class="dolci-price">€ 3,50 – € 4,00</div>
+    </div>
+
+    <div class="dolci-card">
+      <div class="dolci-name">Tiramisù Artigianale</div>
+      <div class="dolci-desc">
+        Disponibile in 4 versioni:<br>
+        <strong>Classico al Caffè</strong> · <strong>Nutella</strong> · <strong>Pistacchio</strong> · <strong>Crema Bueno</strong>.
+        Preparato fresco ogni giorno.
+      </div>
+      <div class="dolci-price">€ 4,00 – € 4,50</div>
+    </div>
+
+    <div class="dolci-card">
+      <div class="dolci-name">Cassatina Monoporzione</div>
+      <div class="dolci-desc">
+        Pan di Spagna, ricotta di pecora, glassa di zucchero fondente, pasta reale. La regina dei dolci siciliani in formato personale.
+      </div>
+      <div class="dolci-price">€ 4,50</div>
+    </div>
+
+    <div class="dolci-card">
+      <div class="dolci-name">Granita Siciliana</div>
+      <div class="dolci-desc">
+        Limoni IGP di Sicilia, mandorla, caffè. Con brioche col tuppo per la colazione perfetta — o come fine pasto.
+      </div>
+      <div class="dolci-price">€ 3,00</div>
+    </div>
+
+    <div class="dolci-card">
+      <div class="dolci-name">Iris Fritta</div>
+      <div class="dolci-desc">
+        Bomba di pasta lievitata fritta, cuore di crema al cioccolato, zucchero a velo. Il guilty pleasure di Palermo — tutto il giorno.
+      </div>
+      <div class="dolci-price">€ 2,50</div>
+    </div>
+
+    <div class="dolci-card">
+      <div class="dolci-name">Brioche col Tuppo &amp; Gelato</div>
+      <div class="dolci-desc">
+        La brioche più soffice del mondo, farcita con gelato artigianale al pistacchio o alla mandorla.
+      </div>
+      <div class="dolci-price">€ 4,00</div>
+    </div>
+
+  </div>
+
+  <!-- ──────────── ORDINI SPECIALI ──────────── -->
+  <div style="margin-top:48px;">
+    <div class="sec-header">
+      <div>
+        <div class="sec-title">Ordini <em>Speciali</em></div>
+        <div class="sec-subtitle">Feste · Compleanni · Aziende</div>
+      </div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="order-big">
+      <div class="order-big-title">Organizzi un <em>evento</em>?</div>
+      <div class="order-big-desc">
+        Prepariamo vassoi di rosticceria mista, teglie di pizza in formati speciali, cannon dolci.<br>
+        Per compleanni, feste aziendali, eventi privati.<br>
+        <strong>Contattaci almeno 24h prima</strong> — ti facciamo un preventivo personalizzato.
+      </div>
+      <div class="order-ctas">
+        <a href="tel:3476916227" class="btn-yellow">347 69 16 227</a>
+        <a href="tel:012518934597" class="btn-outline">0125 1893597</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-note">
+    I prezzi sono IVA inclusa e soggetti a variazioni stagionali. Alcuni ingredienti DOP arrivano direttamente dalla Sicilia:<br>
+    la disponibilità può variare. Per allergie e intolleranze chiedi al personale prima di ordinare.<br>
+    <strong>Consegna a domicilio:</strong> minimo €15 · contributo €2 · zone Ivrea e dintorni (entro ~5km).
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="menu-footer">
+  <div>
+    <div class="mf-brand">Da Adamo</div>
+    <div class="mf-info">Pizzeria &amp; Rosticceria Siciliana<br>Corso Nigra 53 · 10015 Ivrea (TO)</div>
+  </div>
+  <div style="text-align:center">
+    <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.75rem;color:var(--rosso);letter-spacing:.15em;text-transform:uppercase;opacity:.6;">
+      Produzione Propria · Impasto 48h · Ingredienti DOP
+    </div>
+  </div>
+  <div class="mf-phones">
+    <span class="mf-phone-label">Ordini &amp; Info</span>
+    <span class="mf-phone-num">347 69 16 227</span>
+    <span class="mf-phone-num" style="font-size:1rem;">0125 1893597</span>
+  </div>
+</div>
+
+</body>
+</html>
+
+```
